@@ -1,0 +1,22 @@
+Floyd data base name is : floyd1
+Floyd dataTable name is : floyd1development
+and Table in side of colomn name is :
+                
+                SNO
+                RECIEVED_DATE
+                CUSTOMER
+                CUSTOMER_REFRENCE
+                COLOR_REFRENCE_NO
+                ARTICLE_COMPOUND_NAME
+                SOLE_MOULD_ARTICLE
+                GRADE
+                HARDNESS
+                RECIPE
+                QTY
+                OTHER_INSTRUCTIONS
+                PROVIDEDBY
+                RECEIVEDBY
+                STATUS
+                DELIVERED_DATE
+                FEEDBACK
+                DATETIME

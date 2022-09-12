@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Code</title>
+</head>
+
+<body>
+    <div class="main">
+        <p>QR Code Floyd</p>
+        <!-- <pre> -->
+    <textarea class="input" cols="30" rows="6" id="values">
+<!-- Company Name : Floyd Polyplast
+Article Name : 
+Grade : 
+Batch No. : 
+Date :  -->
+</textarea>
+
+        <!-- </pre> -->
+        <button class="btn">Generate QR!</button><br><br>
+        <img src="download.png">
+    </div>
+    <div id="toast">Succsessfully</div>
+    <br/>
+    <script>
+        var brack = document.getElementsByTagName("br");
+        var company = "Company Name :- Floyd Polyplast, ";
+        var article = " Article Name :- ";
+        var grade = "Grade :- ";
+        var batch = "Batch No. :- ";
+        var date = "Date :- ";
+
+        document.getElementById("values").innerHTML = company + article + grade + batch + date ;
+
+
+
+        var parametersJson = {
+            "size": 200, // Size of Qr Code
+            "backgroundColor": "255-255-255", // Background Color Of Qr Code (In RGB)
+            "qrColor": "38-38-38", // Color of Qr Code (In RGB)
+            "padding": 2, // Padding 
+            "data": "dev.to"
+        };
+
+        var parameters;
+
+        var btn = document.querySelector("button");
+        var img = document.querySelector("img");
+        var input = document.querySelector("textarea");
+        var toast = document.querySelector('#toast');
+
+        btn.addEventListener("click", function () {
+            parametersJson.data = input.value || "dev.to";
+            parameters = `size=${parametersJson.size}&bgcolor=${parametersJson.backgroundColor}&color=${parametersJson.qrColor}&qzone=${parametersJson.padding}&data=${parametersJson.data}` // Stitch Together all Paramenters
+            img.src = `https://api.qrserver.com/v1/create-qr-code/?${parameters}` // Set Image URL To Link
+            toastDiv();
+        });
+
+        function toastDiv() {
+            toast.className = "show";
+            setTimeout(
+                function () {
+                    toast.className = toast.className.replace("show", "");
+                }, 2000);
+        }
+    </script>
+</body>
+
+</html>
